@@ -1,5 +1,5 @@
 class Ffmpeg < Formula
-  desc "Play, record, convert, and stream audio and video"
+  desc "Play, record, convert, and stream audio and video. Must have NDI SDK installed, and rename or symbplicl link to /Library/NDI"
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-4.3.1.tar.xz"
   sha256 "ad009240d46e307b4e03a213a0f49c11b650e445b1f8be0dda2a9212b34d2ffb"
@@ -7,7 +7,7 @@ class Ffmpeg < Formula
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
   revision 3
-  head "https://github.com/FFmpeg/FFmpeg.git"
+  head "https://github.com/thpryrchn/FFmpeg.git"
 
   livecheck do
     url "https://ffmpeg.org/download.html"
@@ -108,6 +108,9 @@ class Ffmpeg < Formula
       --enable-libspeex
       --enable-libsoxr
       --enable-videotoolbox
+      --enable-libndi_newtek
+      --extra-cflags="-I/Library/NDI/include"
+      --extra-ldflags="-L/Library/NDI/lib/x64"
       --disable-libjack
       --disable-indev=jack
     ]
