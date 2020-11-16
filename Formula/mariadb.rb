@@ -1,8 +1,8 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.5.7/source/mariadb-10.5.7.tar.gz"
-  sha256 "c06748da7f707b62990b1a7086ed80e68eed396dd3682253130bddbbfacc9039"
+  url "https://downloads.mariadb.com/MariaDB/mariadb-10.5.8/source/mariadb-10.5.8.tar.gz"
+  sha256 "eb4824f6f2c532cd3fc6a6bce7bf78ea7c6b949f8bdd07656b2c84344e757be8"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,9 +11,11 @@ class Mariadb < Formula
   end
 
   bottle do
-    sha256 "db29818b6861bb31e83b44f12f3036f95e7c1a9026304a434a4e1aa43a7e3554" => :catalina
-    sha256 "18318cd93c266dcad11c347fe5a179eb45ed2dd18e4fd8b3b6dc2e8e851fb91b" => :mojave
-    sha256 "8fd73d2545b92f0f23a4dcc5a8c57f753c285cd8a8e830f589433b00e91aefdc" => :high_sierra
+    rebuild 1
+    sha256 "cc13a943751cb2bff630af6b1a85259867030c1a94534b625d7221824c0962fa" => :big_sur
+    sha256 "6c4ab91c7eadee170806cf2d95d5690a6b00a35e3811298f9906f2da79f1c11f" => :catalina
+    sha256 "b22a037c88a4327dea62f83cc60c0ad70855c1e078625d7eb7c483bf3f7d3e30" => :mojave
+    sha256 "d370191e26c5940cfd5ab0ff28dedeed21957b6a7675ffcbac69dacf3ae797e9" => :high_sierra
   end
 
   depends_on "cmake" => :build

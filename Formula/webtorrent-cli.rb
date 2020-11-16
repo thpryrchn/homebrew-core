@@ -3,8 +3,8 @@ require "language/node"
 class WebtorrentCli < Formula
   desc "Command-line streaming torrent client"
   homepage "https://webtorrent.io/"
-  url "https://registry.npmjs.org/webtorrent-cli/-/webtorrent-cli-3.0.7.tgz"
-  sha256 "7c6da2d8c800b921af458c94d606dad53d01cdf013fc364bb041a713e886af92"
+  url "https://registry.npmjs.org/webtorrent-cli/-/webtorrent-cli-3.2.0.tgz"
+  sha256 "8ff1a23fb88a0fefbef140349072ba41706133eaea7d851dcc6776276d6cca87"
   license "MIT"
 
   livecheck do
@@ -12,9 +12,9 @@ class WebtorrentCli < Formula
   end
 
   bottle do
-    sha256 "524dc3212204b210358f2c6798820b17f2634919d60335db7a78a9172d64bac2" => :catalina
-    sha256 "75671e025faab37bf9d90fd195b1c6532a3cb0c47c9e01b2e448b8c4d5429cee" => :mojave
-    sha256 "7dd6916db1c79502146e5664ce1c47674259c3cdca06bbbe4e579a332e368c29" => :high_sierra
+    sha256 "60cdc0a2f395beda3dee530f46b0d3fd6308cd178dc04ca41c4572d12912df69" => :catalina
+    sha256 "ac4d1d3d6c92aa23de4a7283a960917254ca5a9958f108e972ea06a328b72dfa" => :mojave
+    sha256 "b3a637a7f8f1598e9a3ca7dc356da01b5ea4c0d761df3f9645853574de9ba86c" => :high_sierra
   end
 
   depends_on "node"

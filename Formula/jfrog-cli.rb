@@ -1,15 +1,15 @@
 class JfrogCli < Formula
   desc "Command-line interface for Jfrog Artifactory and Bintray"
   homepage "https://www.jfrog.com/confluence/display/CLI/JFrog+CLI"
-  url "https://github.com/jfrog/jfrog-cli/archive/v1.40.1.tar.gz"
-  sha256 "c956b8750f8df440a70617e4dc1109d6f17e19a51bb60a64fc4681b83c8aad48"
+  url "https://github.com/jfrog/jfrog-cli/archive/v1.41.1.tar.gz"
+  sha256 "6da7aeb5ce3e28f17ae4a1d5f91cf48a44ef1b8373c5eaa2ee7bf45cd7968532"
   license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "429a4369a845793bc28ec3665f7214243b87bb3b516f705cd2a8cf87ab8721ef" => :catalina
-    sha256 "0f20b63cb07e5119000becb106143ada57338445ff07a02b702b735f0bf23419" => :mojave
-    sha256 "49efaa10249842d061a6ade4763995fe3255385cb990de80ef7a37a8eaf323c6" => :high_sierra
+    sha256 "d3d8780cc32a80388bb51a35ae2c01238ba33db7ae275cc1ad104b5514554973" => :catalina
+    sha256 "2dd25783c525b6c18228d8cc9d8fd1898e2b6d76fb1ee3d6259ab070d5939c16" => :mojave
+    sha256 "c331c0ba7d1a5f17043a51c14a89b422edefd18191b1f7deb36d2a212efad698" => :high_sierra
   end
 
   depends_on "go" => :build

@@ -3,10 +3,11 @@ class Aide < Formula
   homepage "https://aide.github.io/"
   url "https://github.com/aide/aide/releases/download/v0.16.2/aide-0.16.2.tar.gz"
   sha256 "17f998ae6ae5afb9c83578e4953115ab8a2705efc50dee5c6461cef3f521b797"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     cellar :any
+    sha256 "ed33989aed9c6b7a0a20753d567694c5204d96f4f9b2d91888c3f79172b4359f" => :big_sur
     sha256 "8cf98b716cfdc2e06e059b5c0f780db5940c4fda116c3b0543f8e19bd76a9817" => :catalina
     sha256 "bb68fa349609a0221b2138e3596ceb803242862b771bb0b76440057e31201050" => :mojave
     sha256 "fff1a3e469346d9181f73d8c3d734801b900c765308f3c36495b1801fb3ad897" => :high_sierra
@@ -30,12 +31,21 @@ class Aide < Formula
   def install
     system "sh", "./autogen.sh" if build.head?
 
-    system "./configure", "--disable-lfs",
-                          "--disable-static",
-                          "--with-curl",
-                          "--with-zlib",
-                          "--sysconfdir=#{etc}",
-                          "--prefix=#{prefix}"
+    args = %W[
+      --disable-lfs
+      --disable-static
+      --with-zlib
+      --sysconfdir=#{etc}
+      --prefix=#{prefix}
+    ]
+    on_macos do
+      args << "--with-curl"
+    end
+    on_linux do
+      args << "--with-curl=" + Formula["curl"].prefix
+    end
+
+    system "./configure", *args
 
     system "make", "install"
   end

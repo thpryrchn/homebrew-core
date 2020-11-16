@@ -13,9 +13,11 @@ class Gcc < Formula
   end
 
   bottle do
-    sha256 "8dbccea194c20b1037b7e8180986e98a8ee3e37eaac12c7d223c89be3deaac6a" => :catalina
-    sha256 "79d2293ce912dc46af961f30927b31eb06844292927be497015496f79ac41557" => :mojave
-    sha256 "5ed870a39571614dc5d83be26d73a4164911f4356b80d9345258a4c1dc3f1b70" => :high_sierra
+    rebuild 1
+    sha256 "721b6e0927796363e8ccbb9409d7e6dc2c17e121ae371cfd8198e26b31f5dff8" => :big_sur
+    sha256 "520596722515e691a408b878c93e1f3d93cd6964d033533e48c368490bed0d87" => :catalina
+    sha256 "62f6d04e2b699be8a89a1827d18acb4d6d4df98a40b80091a51ba85712c5585e" => :mojave
+    sha256 "4886ccbae6b664f016595d0bbb518baec08d6cf2ed72803661921950536ab6ed" => :high_sierra
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -34,6 +36,13 @@ class Gcc < Formula
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
+
+  # Patch for Big Sur version numbering, remove with GCC 11
+  # https://github.com/iains/gcc-darwin-arm64/commit/556ab512
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/7baf6e2f/gcc/bigsur.diff"
+    sha256 "42de3bc4889b303258a4075f88ad8624ea19384cab57a98a5270638654b83f41"
+  end
 
   def version_suffix
     if build.head?

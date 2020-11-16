@@ -4,6 +4,7 @@ class PythonAT37 < Formula
   url "https://www.python.org/ftp/python/3.7.9/Python-3.7.9.tar.xz"
   sha256 "91923007b05005b5f9bd46f3b9172248aea5abc1543e8a636d59e629c3331b01"
   license "Python-2.0"
+  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -11,9 +12,10 @@ class PythonAT37 < Formula
   end
 
   bottle do
-    sha256 "0f2cece6843e6b0f0e8c584cb3b8ad2b987e3919e954ec7db2f8e4154ef79255" => :catalina
-    sha256 "3f1ee86cceeebd98cd01a14670d24a1642d5ac1bf6323566daacc25ffb9e1fa2" => :mojave
-    sha256 "897e237390c3da53ce82f3a9488e1a53b0766fdfbaa4251f8db5a4660f0fb7fc" => :high_sierra
+    sha256 "d58781b8d8b467285b2740dca0c5dbca1e99b08a3b2c1f2bb05ca05abd3aca2b" => :big_sur
+    sha256 "6ab2d5599aa9b26bec29562418b8a15d83aa408518402e971c7f44177690b518" => :catalina
+    sha256 "95f3926d2d889032e9dba25533caaf3c4a90dc06d7b1f2ae345e7bd8ab43d069" => :mojave
+    sha256 "31c104f6633fe8da29a9580e885cabe947917aee12729355840b4d58deb4b193" => :high_sierra
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -58,6 +60,16 @@ class PythonAT37 < Formula
   resource "wheel" do
     url "https://files.pythonhosted.org/packages/75/28/521c6dc7fef23a68368efefdcd682f5b3d1d58c2b90b06dc1d0b805b51ae/wheel-0.34.2.tar.gz"
     sha256 "8788e9155fe14f54164c1b9eb0a319d98ef02c160725587ad60f14ddc57b6f96"
+  end
+
+  resource "importlib-metadata" do
+    url "https://files.pythonhosted.org/packages/56/1f/74c3e29389d34feea2d62ba3de1169efea2566eb22e9546d379756860525/importlib_metadata-2.0.0.tar.gz"
+    sha256 "77a540690e24b0305878c37ffd421785a6f7e53c8b5720d211b211de8d0e95da"
+  end
+
+  resource "zipp" do
+    url "https://files.pythonhosted.org/packages/ce/b0/757db659e8b91cb3ea47d90350d7735817fe1df36086afc77c1c4610d559/zipp-3.4.0.tar.gz"
+    sha256 "ed5eee1974372595f9e416cc7bbeeb12335201d8081ca8a0743c954d4446e5cb"
   end
 
   def install
@@ -158,7 +170,7 @@ class PythonAT37 < Formula
     # Remove the site-packages that Python created in its Cellar.
     (prefix/"Frameworks/Python.framework/Versions/#{xy}/lib/python#{xy}/site-packages").rmtree
 
-    %w[setuptools pip wheel].each do |r|
+    %w[setuptools pip wheel importlib-metadata zipp].each do |r|
       (libexec/r).install resource(r)
     end
 
@@ -207,7 +219,7 @@ class PythonAT37 < Formula
     rm_rf Dir["#{site_packages}/distribute*"]
     rm_rf Dir["#{site_packages}/pip[-_.][0-9]*", "#{site_packages}/pip"]
 
-    %w[setuptools pip wheel].each do |pkg|
+    %w[setuptools pip wheel importlib-metadata zipp].each do |pkg|
       (libexec/pkg).cd do
         system bin/"python3", "-s", "setup.py", "--no-user-cfg", "install",
                "--force", "--verbose", "--install-scripts=#{bin}",

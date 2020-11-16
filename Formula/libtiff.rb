@@ -5,6 +5,7 @@ class Libtiff < Formula
   mirror "https://fossies.org/linux/misc/tiff-4.1.0.tar.gz"
   sha256 "5d29f32517dadb6dbcd1255ea5bbc93a2b54b94fbf83653b4d65c7d6775b8634"
   license "libtiff"
+  revision 1
 
   livecheck do
     url "https://download.osgeo.org/libtiff/"
@@ -13,9 +14,10 @@ class Libtiff < Formula
 
   bottle do
     cellar :any
-    sha256 "449bd9123e73e4c4eab85b77322d769cc9df0f6adab05e9b9319b012d1215a68" => :catalina
-    sha256 "dd060521aa30fb2f4678c9ebab6362104a9a705d098a90eac4059743c93c8c16" => :mojave
-    sha256 "577c2754b00fc8a5009e08bfd7af630ab4812250508df20a1c92d3c7ae678b94" => :high_sierra
+    sha256 "0f66c74d4ba96a1e9bac88a58a52335eaa0944de258e608ef62370e80fc5b24a" => :big_sur
+    sha256 "d92eb164b8fbe723a6006023f883a77bc02d4e54d8bbb1db6855f1ad7f1f1d6e" => :catalina
+    sha256 "6194841cb85000404c089288624f3897faa0c888f1653fb5c5388ba58cc8df8f" => :mojave
+    sha256 "75d26fd0a430509b838c5b341221c9bb4a343dfa54dffd626c1f93313e4e512c" => :high_sierra
   end
 
   depends_on "jpeg"
@@ -27,6 +29,8 @@ class Libtiff < Formula
       --prefix=#{prefix}
       --disable-dependency-tracking
       --disable-lzma
+      --disable-webp
+      --disable-zstd
       --with-jpeg-include-dir=#{Formula["jpeg"].opt_include}
       --with-jpeg-lib-dir=#{Formula["jpeg"].opt_lib}
       --without-x

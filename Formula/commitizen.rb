@@ -3,8 +3,8 @@ class Commitizen < Formula
 
   desc "Defines a standard way of committing rules and communicating it"
   homepage "https://commitizen-tools.github.io/commitizen/"
-  url "https://files.pythonhosted.org/packages/02/af/1bef525a2aa9363e682ec6209fcfb55fa30f575ca285e173d6ab1b480509/commitizen-2.6.0.tar.gz"
-  sha256 "383677da935811e37dac4f5442b273f5bbc3f289f540b1d3d22c9c452f0a0346"
+  url "https://files.pythonhosted.org/packages/f8/d8/0c6ade1c0c9a07909e7667c817882a04ab0e1a2cec3c52c1f0bce0caccdc/commitizen-2.8.0.tar.gz"
+  sha256 "2b15abab1b024763339494aba07ac63b6da945fb92a688aa03e50180b666a7d7"
   license "MIT"
   head "https://github.com/commitizen-tools/commitizen.git"
 
@@ -14,9 +14,10 @@ class Commitizen < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "908b5428914c6a1d82c5a4fcbaa9a4dacc98a837069693131c6f9f561c7f03e6" => :catalina
-    sha256 "1878aa34ea318a77f54e229e8a715300f35152732f92549c10901294be7d8539" => :mojave
-    sha256 "63c156caf2fe52b1a97131e3f546965c47439c10010fcdb84ba51fb6a9f1906d" => :high_sierra
+    sha256 "f3d790e47bf459559242d0bb4750232c0c8be74aaebfb3e94c9fed79dad11e2c" => :big_sur
+    sha256 "0183c24bdc819fba668f48c3ee14e8b90ef99b6270107001c4d6871220d043fb" => :catalina
+    sha256 "9b9d7a7bb33daa21021e80bc88d9e82c954b74579bd4fff621bf682bcf13021c" => :mojave
+    sha256 "723275443aadaaa22d5812b255481b121a4b817303b9bfa78ac13af1c2a1d6d1" => :high_sierra
   end
 
   depends_on "python@3.9"
@@ -62,8 +63,8 @@ class Commitizen < Formula
   end
 
   resource "questionary" do
-    url "https://files.pythonhosted.org/packages/89/70/6c2176fde7cfacbd3f3833bfb321827826c72071b7c008eb56defb2ca68c/questionary-1.7.0.tar.gz"
-    sha256 "338f326d3d10204dc3a21a07cfa8243f32d8d8f3d9f3de244951066c0769f2ea"
+    url "https://files.pythonhosted.org/packages/26/4a/ef9920dc730ba84750b82e330f8b5a0f7ec292d571daa7718fd3e8a0ac8e/questionary-1.8.0.tar.gz"
+    sha256 "0f76eb389aef1048e04bec1338fec074308091446fbe92914d064c77c092a868"
   end
 
   resource "six" do

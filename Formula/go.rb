@@ -4,9 +4,9 @@ class Go < Formula
   license "BSD-3-Clause"
 
   stable do
-    url "https://golang.org/dl/go1.15.4.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go1.15.4.src.tar.gz"
-    sha256 "063da6a9a4186b8118a0e584532c8c94e65582e2cd951ed078bfd595d27d2367"
+    url "https://golang.org/dl/go1.15.5.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.15.5.src.tar.gz"
+    sha256 "c1076b90cf94b73ebed62a81d802cd84d43d02dea8c07abdc922c57a071c84f1"
 
     go_version = version.major_minor
     resource "gotools" do
@@ -21,9 +21,10 @@ class Go < Formula
   end
 
   bottle do
-    sha256 "44733076c510cc02a70ba50d5d774190ecb4dfdf48fcefd334dfcf8018f265fc" => :catalina
-    sha256 "5fdd766d06af52d1491a47cd9228944543269cdae95c33194786a0dade03923c" => :mojave
-    sha256 "6c4116a27b52024f1fdf6a4b627449ec5d76bf67d6aac9aa17d6c178ad3d1cd8" => :high_sierra
+    sha256 "61f04e266ba1f69573ae46766f8988029c5a34f4ae4f1ac0951cf3daf4d919d1" => :big_sur
+    sha256 "77f172eb6849a0f86eed4fa8eaeb9e8c69223b7f154a86505a7507b4ea78de79" => :catalina
+    sha256 "70969a6147bad6960136bdea78063d39b527c993a725ad525a3cf6e9f8ad6fa5" => :mojave
+    sha256 "7d39badbe6096ffd120c3e997ee16fd026d12c4037eb055d26290a39f2689582" => :high_sierra
   end
 
   head do

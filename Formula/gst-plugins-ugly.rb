@@ -5,7 +5,7 @@ class GstPluginsUgly < Formula
   sha256 "18cd6cb829eb9611ca63cbcbf46aca0f0de1dd28b2df18caa2834326a75ff725"
   license "LGPL-2.0-or-later"
   revision 1
-  head "https://anongit.freedesktop.org/git/gstreamer/gst-plugins-ugly.git"
+  head "https://gitlab.freedesktop.org/gstreamer/gst-plugins-ugly.git"
 
   livecheck do
     url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/"
@@ -13,6 +13,7 @@ class GstPluginsUgly < Formula
   end
 
   bottle do
+    sha256 "6b9873a83aa8abf05c00202db6598aca62ff62a152aa4a3ba4c3ad7d856187cc" => :big_sur
     sha256 "b0cff8eebb5a86764b5a370a5896d93aeb030907df7cb564fb20c5855843a3da" => :catalina
     sha256 "a6ba3f422f3d6b332e2159cdb752acc0a000b50611118301ad56dc4da614b045" => :mojave
     sha256 "decba1dff60ae4c0f40bf9530deb2d04eb20c09e72af0f70a12dea8c40a21d7d" => :high_sierra

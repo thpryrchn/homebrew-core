@@ -3,6 +3,7 @@ class Atkmm < Formula
   homepage "https://www.gtkmm.org/"
   url "https://download.gnome.org/sources/atkmm/2.28/atkmm-2.28.0.tar.xz"
   sha256 "4c4cfc917fd42d3879ce997b463428d6982affa0fb660cafcc0bc2d9afcedd3a"
+  license "LGPL-2.1-or-later"
   revision 2
 
   livecheck do
@@ -11,6 +12,7 @@ class Atkmm < Formula
 
   bottle do
     cellar :any
+    sha256 "299011b76d8471172bd8c6739e61f87165a249a9fbb44ee161177aa788a89aa5" => :big_sur
     sha256 "65dca5000702ffcabc191ed84c33cef365056f4c853c8630a094c6e917b5e6c7" => :catalina
     sha256 "41fa55c1a359635acac27990de9ef7d4c84c6e45f43b54b4fecd0c85010d5ed0" => :mojave
     sha256 "cc4325eb5abdb8248ea4d4ec36f5ab37abfce03459034c700b92cfaa757392e8" => :high_sierra
@@ -63,9 +65,11 @@ class Atkmm < Formula
       -lglib-2.0
       -lglibmm-2.4
       -lgobject-2.0
-      -lintl
       -lsigc-2.0
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *flags
     system "./test"
   end

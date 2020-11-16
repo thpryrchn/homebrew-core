@@ -1,7 +1,7 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  # Note: Please keep these values in sync with git-gui.rb when updating.
+  # NOTE: Please keep these values in sync with git-gui.rb when updating.
   url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.29.2.tar.xz"
   sha256 "f2fc436ebe657821a1360bcd1e5f4896049610082419143d60f6fa13c2f607c1"
   license "GPL-2.0-only"
@@ -13,6 +13,7 @@ class Git < Formula
   end
 
   bottle do
+    sha256 "99ffa981e42bfb6ed77fc1a9f4d1dc07681b2ba532ffc122d02b75eb002047e1" => :big_sur
     sha256 "47cffc0d84e2a273cc6088802633e1d4d1fc8afe67633ed8487b497cd78c54f8" => :catalina
     sha256 "97cd781a7060f6c1dc456d36e6d17d68ec78470affe3fc0b1d8ff46402be6fcf" => :mojave
     sha256 "b0ad755307e1f83e0c844aeef94774e499ebb85f1e36934966ac9bb31618da61" => :high_sierra

@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-    tag:      "v0.30.0",
-    revision: "19317f3c416b5e3b858b59c07353faca014b01bb"
+    tag:      "v0.31.1",
+    revision: "515abf9fbac040dccd545b4282b918cb413438c8"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -16,9 +16,10 @@ class Semgrep < Formula
 
   bottle do
     cellar :any
-    sha256 "7f39d21feda004f3a8caf5c18fadd0a442b249832ec0a913f35489eafb12e494" => :catalina
-    sha256 "18552743f9cdc0d2e65e2a7258c2c8f790c779da77ce1e7b0a9e0cefb9f6e19d" => :mojave
-    sha256 "1a01849694732255271413e0d242b8a67bf5eebd1c7eafcaefce05999a413c33" => :high_sierra
+    sha256 "78bfdb5405ab7be28930ce3e023ae215d04008ac62175241bc188ac468757db9" => :big_sur
+    sha256 "9b10218aa3a769d6bde553af9cc1d0ae4fe64158452f62e730526fb9e423e37c" => :catalina
+    sha256 "05c170d912397fbddb288331852414ffe1b628c6a5c021a00a49142d87823d87" => :mojave
+    sha256 "1bc9e497038a4f78096d648420f43907e930532ac5f4b4eda961dc6fcdba258b" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -30,13 +31,13 @@ class Semgrep < Formula
   depends_on "python@3.9"
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/81/d0/641b698d05f0eaea4df4f9cebaff573d7a5276228ef6b7541240fe02f3ad/attrs-20.2.0.tar.gz"
-    sha256 "26b54ddbbb9ee1d34d5d3668dd37d6cf74990ab23c828c2888dccdceee395594"
+    url "https://files.pythonhosted.org/packages/f0/cb/80a4a274df7da7b8baf083249b0890a0579374c3d74b5ac0ee9291f912dc/attrs-20.3.0.tar.gz"
+    sha256 "832aa3cde19744e49938b91fea06d69ecb9e649c93ba974535d08ad92164f700"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
-    sha256 "5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3"
+    url "https://files.pythonhosted.org/packages/e6/de/879cf857ae6f890dfa23c3d6239814c5471936b618c8fb0c8732ad5da885/certifi-2020.11.8.tar.gz"
+    sha256 "f05def092c44fbf25834a51509ef6e631dc19765ab8a57b4e7ab85531f0a9cf4"
   end
 
   resource "chardet" do

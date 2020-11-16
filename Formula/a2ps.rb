@@ -6,10 +6,6 @@ class A2ps < Formula
   sha256 "f3ae8d3d4564a41b6e2a21f237d2f2b104f48108591e8b83497500182a3ab3a4"
   license "GPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 3
     sha256 "98a293e2d83134c9a1c35026f68207d9fc2ac1bde9d7d15dd29849d7d9c5b237" => :catalina
@@ -20,27 +16,32 @@ class A2ps < Formula
   end
 
   pour_bottle? do
-    reason "The bottle needs to be installed into /usr/local."
+    reason "The bottle needs to be installed into #{Homebrew::DEFAULT_PREFIX}."
     # https://github.com/Homebrew/brew/issues/2005
-    satisfy { HOMEBREW_PREFIX.to_s == "/usr/local" }
+    satisfy { HOMEBREW_PREFIX.to_s == Homebrew::DEFAULT_PREFIX }
+  end
+
+  # Software was last updated in 2007.
+  # https://svn.macports.org/ticket/20867
+  # https://trac.macports.org/ticket/18255
+  on_macos do
+    patch :p0 do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/0ae366e6/a2ps/patch-contrib_sample_Makefile.in"
+      sha256 "5a34c101feb00cf52199a28b1ea1bca83608cf0a1cb123e6af2d3d8992c6011f"
+    end
   end
 
   on_linux do
     depends_on "gperf"
   end
 
-  # Software was last updated in 2007.
-  # https://svn.macports.org/ticket/20867
-  # https://trac.macports.org/ticket/18255
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/0ae366e6/a2ps/patch-contrib_sample_Makefile.in"
-    sha256 "5a34c101feb00cf52199a28b1ea1bca83608cf0a1cb123e6af2d3d8992c6011f"
-  end
-
   patch :p0 do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/0ae366e6/a2ps/patch-lib__xstrrpl.c"
     sha256 "89fa3c95c329ec326e2e76493471a7a974c673792725059ef121e6f9efb05bf4"
   end
+
+  # Fails to build on Catalina. No new release since 2007
+  disable! because: :does_not_build
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
