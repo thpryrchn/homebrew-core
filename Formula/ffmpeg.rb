@@ -115,6 +115,7 @@ class Ffmpeg < Formula
       --enable-libndi_newtek
       --extra-cflags="-I/Library/NDI/include"
       --extra-ldflags="-L/Library/NDI/lib/x64"
+      --enable-nonfree
       --disable-libjack
       --disable-indev=jack
     ]
