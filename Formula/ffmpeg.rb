@@ -63,6 +63,7 @@ class Ffmpeg < Formula
   depends_on "x265"
   depends_on "xvid"
   depends_on "xz"
+  depends_on "srt"
 
   uses_from_macos "bzip2"
   uses_from_macos "libxml2"
@@ -116,6 +117,7 @@ class Ffmpeg < Formula
       --extra-cflags="-I/Library/NDI/include"
       --extra-ldflags="-L/Library/NDI/lib/x64"
       --enable-nonfree
+      --enable-libsrt
       --disable-libjack
       --disable-indev=jack
     ]
